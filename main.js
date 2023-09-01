@@ -1,6 +1,10 @@
 import './style.css'
 
 const typeWriterText = document.querySelector(".typeWriterText")
+const navBar = document.querySelector("nav")
+const navSection = document.querySelector("section")
+
+
 const phrase = ["Business" , "Agency" , "Startup" , "SaaS"]
 let currentPhrase = 0
 let sleepTime = 250
@@ -30,3 +34,16 @@ const writeLoop = async () =>{
 }
 
 writeLoop()
+
+function toggleNavPosition(){
+ if(window.pageYOffset > 0){
+  navBar.style.position = "fixed"
+ }
+ else{
+  navBar.style.position = "static"
+ }
+}
+
+window.addEventListener("scroll" ,toggleNavPosition)
+
+toggleNavPosition()
