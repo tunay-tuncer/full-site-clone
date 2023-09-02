@@ -38,11 +38,13 @@ writeLoop()
 
 function toggleNavPosition(){
   if(window.pageYOffset > 0){
-    navBar.style.position = "fixed"
+    navBar.style.position = "sticky"
+    navBar.style.background = "rgb(17 23 34)"
     pageUpButton.style.opacity = "1"
   }
   else{
     navBar.style.position = "static"
+    navBar.style.background = "rgba(255,255,255, 0)"
     pageUpButton.style.opacity = "0"
   }
 }
