@@ -3,6 +3,7 @@ import './style.css'
 const typeWriterText = document.querySelector(".typeWriterText")
 const navBar = document.querySelector("nav")
 const navSection = document.querySelector("section")
+const pageUpButton = document.querySelector(".pageUpButton")
 
 
 const phrase = ["Business" , "Agency" , "Startup" , "SaaS"]
@@ -36,14 +37,22 @@ const writeLoop = async () =>{
 writeLoop()
 
 function toggleNavPosition(){
- if(window.pageYOffset > 0){
-  navBar.style.position = "fixed"
- }
- else{
-  navBar.style.position = "static"
- }
+  if(window.pageYOffset > 0){
+    navBar.style.position = "fixed"
+    pageUpButton.style.opacity = "1"
+  }
+  else{
+    navBar.style.position = "static"
+    pageUpButton.style.opacity = "0"
+  }
 }
 
+function pageUpFunc(){
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+
 window.addEventListener("scroll" ,toggleNavPosition)
+pageUpButton.addEventListener("click", pageUpFunc)
 
 toggleNavPosition()
